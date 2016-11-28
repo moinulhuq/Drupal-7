@@ -1,0 +1,77 @@
+<?php
+
+/**
+* @file
+* A hello world module.
+*/
+
+
+/**
+*  implements hook_init().
+*/
+function helloworld_init(){
+
+	// echo 'hello world';
+
+	drupal_set_message('hello world');
+
+}
+
+
+/**
+*  implements hook_menu().
+*/
+function helloworld_menu(){
+
+	$items = array();
+
+	$items['helloworldpage'] = array(
+
+		'title'=>'Helloworld Menu',
+		'description'=>'Helloworld Menu Description',
+		'page callback'=>'drupal_get_form',
+		'page arguments'=>array('helloworld_showmyform'),
+		'access callback' =>'user_access',		
+		'access arguments' =>array('access content'),		
+		'type' => MENU_NORMAL_ITEM
+
+	);
+
+	return $items;
+}
+
+/**
+*  implements custom form name helloworld_showmyform().
+*/
+
+function helloworld_showmyform(){
+
+	$form = array();
+
+	$form['name'] = array(
+		"#type" => "textfield",
+		"#title" => "Enter your name"	
+	);
+
+	$form['click'] = array(
+		"#type" => "submit",
+		"#value" => "Click"
+	);
+
+	$form['#click'][] = 'helloworld_showmyform_validate';
+	
+	return $form;
+
+}
+
+function helloworld_showmyform_validate($form, &$form_state){
+	if($form_state['values']['name']=="")
+		form_set_error('name', 'Name cant be empty!');
+	else
+		drupal_set_message($form_state['values']['name']." you are here");
+}
+
+
+
+
+

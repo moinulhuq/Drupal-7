@@ -1,0 +1,5 @@
+name = Hello world
+description = Hello world Module
+version = 1.0
+package = Helloworldpkg
+core= 7.x
