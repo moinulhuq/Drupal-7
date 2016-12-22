@@ -1,0 +1,14 @@
+<?php
+/**
+* @file
+* Module file for starting drupal dev
+*/
+
+/**
+* Implements of hook_init().
+*/
+function monotool_init() {
+	echo 'This line print first';
+	//(or)
+	drupal_set_message('This line print first');
+}

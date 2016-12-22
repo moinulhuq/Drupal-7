@@ -1,0 +1,5 @@
+name = monotool
+description = Monotool Module
+version = 1.0
+package = practicepkg
+core= 7.x
