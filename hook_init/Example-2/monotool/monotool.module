@@ -1,0 +1,17 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements hook_init().
+ */
+function monotool_init() {
+
+  if (drupal_is_front_page()) {
+    drupal_add_css(drupal_get_path('module', 'monotool') . '/css/sample.css');
+    drupal_add_js(drupal_get_path('module', 'monotool') . '/js/sample.js');
+  }
+
+}
