@@ -1,0 +1,23 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements hook_page_build().
+ */
+function monotool_page_build(&$page) {
+
+  if (user_is_anonymous()) {
+    $status = drupal_get_http_header('Status');
+    if ('404 Not Found' === $status || '403 Forbidden' === $status) {
+      not_found_function($page);
+    }
+  }
+
+}
+
+function not_found_function(&$page){
+  $page['content']['system_main']['main']['#markup'] = "Either (404 Not Found) or (403 Forbidden). Please check URL";
+}
