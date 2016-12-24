@@ -1,0 +1,12 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements hook_page_build().
+ */
+function monotool_page_build(&$page) {
+  $page['footer']['system_powered-by']['#markup'] = 'Copyright @ communica.co.nz';
+}
