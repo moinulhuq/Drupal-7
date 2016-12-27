@@ -1,0 +1,22 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements hook_cron().
+ */
+
+function monotool_cron(){
+
+  watchdog('cron', 'Hello Cron!');
+
+}
+
+/*
+1. Install drush (this is Drupal's Swiss Army knife)
+2. run drush cc all
+3. run drush cron
+4. check your reports->Recent log messages ( http://localhost/drupal7/#overlay=admin/reports/dblog )
+*/
