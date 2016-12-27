@@ -1,0 +1,24 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implementation of hook_permission().
+ */
+
+//http://localhost/drupal7/admin/people/permissions#module-monotool
+
+function monotool_permission() {
+  return array(
+    'view monotool' => array(
+      'title' => t('View monotool'),
+      'description' => t('Allow certain roles to view monotool without control of the settings.'),
+    ),
+    'administer monotool' => array(
+      'title' => t('Administer monotool'),
+      'description' => t('Add, delete and edit the settings for monotool.'),
+    ),
+  );
+}
