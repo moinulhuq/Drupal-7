@@ -1,0 +1,17 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/*
+* Implements hook_help().
+*/
+
+// http://localhost/drupal7/admin/help#monotool
+
+function monotool_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#monotool': return "This is my help text";
+  }
+}
