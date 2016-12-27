@@ -1,0 +1,36 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implementation of hook_menu().
+ */
+function monotool_menu() {
+
+  $items['hello'] = array(
+    'title' => 'Hello Menu',
+    'type' => MENU_NORMAL_ITEM,
+    'page callback' => 'hello_page_callback',
+    'access callback' => TRUE,
+  );
+
+  return $items;
+
+}
+
+function hello_page_callback() {
+  return 'Hello';
+}
+
+/**
+ * Implementation of hook_menu_alter().
+ */
+function monotool_menu_alter(&$items) {
+  $items['hello']['page callback'] = 'world_page_callback';
+}
+
+function world_page_callback() {
+  return 'world';
+}
