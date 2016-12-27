@@ -1,0 +1,33 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implementation of hook_menu().
+ */
+
+
+//Adding your menu links in the navigation bar
+
+function monotool_menu() {
+
+  $items['hello'] = array(
+    'title' => 'Hello Menu',
+    'type' => MENU_NORMAL_ITEM,
+    'page callback' => 'hello_page_callback',
+    'access callback' => TRUE,
+  );
+
+  return $items;
+
+}
+
+//Passing parameter vwith URL. <your drupal installation URL>/hello/moinul/huq
+
+function hello_page_callback($paramone = '', $paramtwo ='') {
+
+  return 'Hello World '.$paramone.' '.$paramtwo;
+
+}
