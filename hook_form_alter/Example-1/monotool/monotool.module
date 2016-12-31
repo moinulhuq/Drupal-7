@@ -1,0 +1,25 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+
+function monotool_form_alter(&$form, &$form_state, $form_id) {
+
+  if($form['#form_id'] == 'search_block_form'){
+
+    $form['searchdescription'] = array(
+      '#type' => 'textarea', //you can find a list of available types in the form api
+      '#size' => 10,
+      '#maxlength' => 10,
+      '#required' => TRUE, //make this field required
+    );
+
+  }
+
+  return $form;
+}
