@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+
+/*
+Creating custom cache segments
+In this situation, you will need to just clone a standard segment {cache} and create your own on its basis.
+For example, create the "monotool" module, for which "cache_monotool" will be your new cache segment.
+To clone the cache table, implement hook_schema() in monotool.install and add your table.
+*/
+
+function monotool_schema() {
+
+    $schema['cache_monotool'] = drupal_get_schema_unprocessed('system', 'cache');
+    $schema['cache_monotool']['description'] = 'Cache table for My module.';
+
+    return $schema;
+
+}

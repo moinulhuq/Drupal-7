@@ -1,0 +1,23 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements hook_flush_caches().
+ */
+
+/*
+The table has been created through hook_schema().
+The next important step is cleaning the table during the system cache cleaning.
+For this purpose, Drupal has a hook called hook_flush_caches().
+Apply it. To do so, write the following in the monotool.module file:
+*/
+
+function monotool_flush_caches() {
+
+	return array('cache_monotool');
+
+}
+
