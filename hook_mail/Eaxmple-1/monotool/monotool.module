@@ -1,0 +1,41 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements of hook_init().
+ */
+function monotool_init() {
+
+	$params = array('first_name' => 'Moin');
+
+	// drupal_mail($module, $key, $to, $language, $params = array(), $from = NULL, $send = TRUE)
+	$message = drupal_mail('monotool', 'awesome_mail_one', 'moinulhuq@gmail.com', language_default(), $params, 'moinul@communica.co.nz', TRUE);
+
+	if (!empty($message['result'])){
+		drupal_set_message("Mail sent!");
+	}
+
+}
+
+/**
+ * Implements hook_mail().
+ */
+function monotool_mail($key, &$message, $params) {
+
+	switch($key) {
+
+		case 'awesome_mail_one':
+			$message['subject'] = t("Awesome message #1 for @name", array('@name' => $params['first_name']));
+			$message['body'][] = "This is a very important message!";
+			break;
+
+		case 'awesome_mail_two':
+			$message['subject'] = "Awesome message #2";
+			$message['body'][] = "This is another very important message!";
+			break;
+
+	}
+}
