@@ -1,0 +1,15 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements of hook_enable().
+ */
+
+// This hook is invoked at all times a module is enabled not just when the module is installed
+
+function monotool_enable() {
+	drupal_set_message('Module is Enable');
+}
