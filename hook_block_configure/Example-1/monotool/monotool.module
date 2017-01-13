@@ -1,0 +1,65 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements of hook_block_info().
+ */
+function monotool_block_info() {
+
+	$blocks['helloworld'] = array(
+		'info' => t('Hello world'),
+		'cache' => DRUPAL_CACHE_GLOBAL
+		);
+
+	return $blocks;
+}
+
+/**
+ * Implements of hook_block_configure().
+ */
+
+// To configure the block we will use hook_block_configure.-> admin/structure/block/manage/monotool/helloworld/configure
+
+function monotool_block_configure($delta = '') {
+
+	$form = array();
+
+	switch($delta) {
+
+			case 'helloworld':
+
+					$form['demo_number'] = array(
+						'#type' => 'textfield',
+						'#title' => t('Number of nodes you want the block to show'),
+						'#default_value' => variable_get('demo_number', 10),
+						'#size' => 60,
+					);
+					break;
+
+	}
+	return $form;
+}
+
+/**
+ * Implements of hook_block_save().
+ */
+
+// With hook_block_save() we can save our items. -> -> admin/structure/block/manage/monotool/helloworld/configure
+
+function monotool_block_save($delta = '', $edit = array()) {
+
+	switch($delta) {
+
+		case 'helloworld':
+			variable_set('demo_number', $edit['demo_number']);
+			break;
+
+	}
+
+	return;
+
+}
+
