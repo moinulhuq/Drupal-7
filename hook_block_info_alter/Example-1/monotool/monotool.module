@@ -1,0 +1,15 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements of hook_block_info_alter().
+ */
+
+function monotool_block_info_alter(&$blocks, $theme, $code_blocks) {
+	$blocks['system']['powered-by']['status'] = 0;
+}
+
+
