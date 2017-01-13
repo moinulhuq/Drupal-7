@@ -1,0 +1,39 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements of hook_block_info().
+ */
+
+//Will create blocks name 'helloworld' then place it from admin > structure > blocks
+
+function monotool_block_info() {
+	$blocks['helloworld'] = array(
+		'info' => t('Demoblock: Hello world'),
+		'cache' => DRUPAL_CACHE_GLOBAL
+	);
+
+	return $blocks;
+}
+
+//To show data inside the block, we have to use hook_block_view
+
+function monotool_block_view($delta = '') {
+	$block = array();
+
+	switch ($delta) {
+		case 'helloworld':
+			$block['subject'] = t('Hello World!');
+			$block['content'] = _monotool_helloworld_content();
+			break;
+
+	}
+	return $block;
+}
+
+function _monotool_helloworld_content() {
+	return 'Hello World Mate!';
+}
