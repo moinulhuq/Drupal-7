@@ -1,0 +1,16 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements of hook_block_view_alter().
+ */
+
+function monotool_block_view_alter(&$data, $block) {
+	if($block->module == 'monotool'){
+		$data['content'] = '<p>New content</p>';
+	}
+}
+
