@@ -1,0 +1,21 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements of hook_node_info().
+ */
+
+// Create content type like article and basic page . http://localhost/drupal7/#overlay=node/add
+
+function monotool_node_info() {
+	return array(
+		'blog' => array(
+			'name' => t('Blog entry'),
+			'base' => 'blog',
+			'description' => t('Use for multi-user blogs. Every user gets a personal blog.'),
+		)
+	);
+}
