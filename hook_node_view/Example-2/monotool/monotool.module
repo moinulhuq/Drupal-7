@@ -1,0 +1,31 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements of hook_node_view().
+ */
+
+// Display on your basic page this msg
+
+function monotool_node_view($node, $view_mode, $langcode) {
+
+	if($view_mode=='full'){
+
+		switch ($node->type) {
+			case 'page':
+				$node->content['welcome_message'] = array(
+				'#markup' => 'Hello and welcome to our Drupal page!',
+			);
+			break;
+			case 'article':
+				$node->content['welcome_message'] = array(
+					'#markup' => 'Hello and welcome to our Drupal article!',
+				);
+				break;
+		}
+
+	}
+}
