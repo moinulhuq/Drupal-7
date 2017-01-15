@@ -1,0 +1,15 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements hook_node_view_alter().
+ */
+
+function monotool_node_view_alter(&$build) {
+	if ($build['#view_mode'] == 'full') {
+		$build['#suffix'] = '<strong>Hello</strong>';
+	}
+}
