@@ -1,0 +1,20 @@
+<?php
+/**
+ * @file
+ * Module file for starting drupal dev
+ */
+
+/**
+ * Implements hook_field_extra_fields().
+ */
+
+// Add extra field to manage display form. http://localhost/drupal7/node/2#overlay-context=node/2&overlay=admin/structure/types/manage/article/display
+
+function monotool_field_extra_fields() {
+	$extra['node']['article']['display']['welcome_message'] = array(
+		'label' => t('Welcome message'),
+		'description' => t('A welcome message'),
+		'weight' => 0,
+	);
+	return $extra;
+}
